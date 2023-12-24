@@ -304,7 +304,7 @@ String input=
         "..139..........45......#...316....=................*..........678*..........*..@10..*......*..*.........*...61-......................*......\n" +
         ".....................815.........786................186...........640......388.......415....4..36.....894.........................303.......";
 
-
+//467835
 //        String input="467..114..\n" +
 //                     "...*......\n" +
 //                     "..35..633.\n" +
@@ -323,8 +323,8 @@ String input=
         char current = 0;
         char previous = 0;
 
-        int temp = 0;
-        long sum = 0;
+        long temp = 0L;
+        long sum  = 0L;
 
 
         for (int i = 0; i <engineSchematic.size(); i++) {
@@ -383,19 +383,32 @@ String input=
         int partSize = engineSchematic.get(i).length();
 
         for (int j = firstIdx; j < firstIdx + countDigits; j++) {
+//            if (
+//                    (!(j - 1 < 0) && ((!Character.isDigit(engineSchematic.get(i).charAt(j - 1)) && engineSchematic.get(i).charAt(j - 1) != '.'))) ||
+//                            (!(j + 1 > partSize - 1) && ((!Character.isDigit(engineSchematic.get(i).charAt(j + 1)) && engineSchematic.get(i).charAt(j + 1) != '.'))) ||
+//
+//                            (!(i - 1 < 0 || j - 1 < 0) && ((!Character.isDigit(engineSchematic.get(i - 1).charAt(j - 1)) && engineSchematic.get(i-1).charAt(j - 1) != '.'))) ||
+//                            (!(i - 1 < 0) && ((!Character.isDigit(engineSchematic.get(i - 1).charAt(j)) && engineSchematic.get(i-1).charAt(j) != '.'))) ||
+//                            (!(i - 1 < 0 || j + 1 > partSize - 1) && ((!Character.isDigit(engineSchematic.get(i - 1).charAt(j + 1)) && engineSchematic.get(i-1).charAt(j + 1) != '.'))) ||
+//
+//                            (!(i + 1 > engSize - 1 || j - 1 < 0) && ((!Character.isDigit(engineSchematic.get(i + 1).charAt(j - 1)) && engineSchematic.get(i + 1).charAt(j - 1) != '.'))) ||
+//                            (!(i + 1 > engSize - 1) && ((!Character.isDigit(engineSchematic.get(i + 1).charAt(j)) && engineSchematic.get(i + 1).charAt(j) != '.'))) ||
+//                            (!(i + 1 > engSize - 1 || j + 1 > partSize - 1) && ((!Character.isDigit(engineSchematic.get(i + 1).charAt(j + 1)) && engineSchematic.get(i + 1).charAt(j + 1) != '.')))
+//
+//            ) {
             if (
-                    (!(j - 1 < 0) && ((!Character.isDigit(engineSchematic.get(i).charAt(j - 1)) && engineSchematic.get(i).charAt(j - 1) != '.'))) ||
-                            (!(j + 1 > partSize - 1) && ((!Character.isDigit(engineSchematic.get(i).charAt(j + 1)) && engineSchematic.get(i).charAt(j + 1) != '.'))) ||
+                    (!(j - 1 < 0) && ((!Character.isDigit(engineSchematic.get(i).charAt(j - 1))&&(!Character.isLetter(engineSchematic.get(i).charAt(j - 1)) && engineSchematic.get(i).charAt(j - 1) != '.'))) ||
+                            (!(j + 1 > partSize - 1) && ( (!Character.isDigit(engineSchematic.get(i).charAt(j + 1))&&((!Character.isLetter(engineSchematic.get(i).charAt(j + 1)))) && engineSchematic.get(i).charAt(j + 1) != '.'))) ||
 
-                            (!(i - 1 < 0 || j - 1 < 0) && ((!Character.isDigit(engineSchematic.get(i - 1).charAt(j - 1)) && engineSchematic.get(i-1).charAt(j - 1) != '.'))) ||
-                            (!(i - 1 < 0) && ((!Character.isDigit(engineSchematic.get(i - 1).charAt(j)) && engineSchematic.get(i-1).charAt(j) != '.'))) ||
-                            (!(i - 1 < 0 || j + 1 > partSize - 1) && ((!Character.isDigit(engineSchematic.get(i - 1).charAt(j + 1)) && engineSchematic.get(i-1).charAt(j + 1) != '.'))) ||
+                            (!(i - 1 < 0 || j - 1 < 0) && ((!Character.isDigit(engineSchematic.get(i - 1).charAt(j - 1))&&((!Character.isDigit(engineSchematic.get(i - 1).charAt(j - 1)))) && engineSchematic.get(i-1).charAt(j - 1) != '.'))) ||
+                            (!(i - 1 < 0) && ((!Character.isDigit(engineSchematic.get(i - 1).charAt(j))&&((!Character.isLetter(engineSchematic.get(i - 1).charAt(j)))) && engineSchematic.get(i-1).charAt(j) != '.'))) ||
+                            (!(i - 1 < 0 || j + 1 > partSize - 1) && ((!Character.isDigit(engineSchematic.get(i - 1).charAt(j + 1))&&((!Character.isLetter(engineSchematic.get(i - 1).charAt(j + 1)))) && engineSchematic.get(i-1).charAt(j + 1) != '.'))) ||
 
-                            (!(i + 1 > engSize - 1 || j - 1 < 0) && ((!Character.isDigit(engineSchematic.get(i + 1).charAt(j - 1)) && engineSchematic.get(i + 1).charAt(j - 1) != '.'))) ||
-                            (!(i + 1 > engSize - 1) && ((!Character.isDigit(engineSchematic.get(i + 1).charAt(j)) && engineSchematic.get(i + 1).charAt(j) != '.'))) ||
-                            (!(i + 1 > engSize - 1 || j + 1 > partSize - 1) && ((!Character.isDigit(engineSchematic.get(i + 1).charAt(j + 1)) && engineSchematic.get(i + 1).charAt(j + 1) != '.')))
+                            (!(i + 1 > engSize - 1 || j - 1 < 0) && ((!Character.isDigit(engineSchematic.get(i + 1).charAt(j - 1))&&((!Character.isLetter(engineSchematic.get(i + 1).charAt(j - 1)))) && engineSchematic.get(i + 1).charAt(j - 1) != '.'))) ||
+                            (!(i + 1 > engSize - 1) && ((!Character.isDigit(engineSchematic.get(i + 1).charAt(j))&&((!Character.isLetter(engineSchematic.get(i + 1).charAt(j)))) && engineSchematic.get(i + 1).charAt(j) != '.'))) ||
+                            (!(i + 1 > engSize - 1 || j + 1 > partSize - 1) && ((!Character.isDigit(engineSchematic.get(i + 1).charAt(j + 1))&&((!Character.isLetter(engineSchematic.get(i + 1).charAt(j + 1)))) && engineSchematic.get(i + 1).charAt(j + 1) != '.')))
 
-            ) {
+            )) {
                 nearToSymbol = true;
                 System.out.println(nearToSymbol + " nearToSymbol row:" + i);
                 break;
